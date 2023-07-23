@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: Apache-2.0
+# West YAML manifest for Zephyr as Xen Dom0
+
+manifest:
+  self:
+    path: test_shell
+
+  remotes:
+    - name: xentroops
+      url-base: https://github.com/xen-troops
+
+    - name: dsemenets
+      url-base: https://github.com/dsemenets
+
+    - name: amoi
+      url-base: https://github.com/oleksiimoisieiev
+
+    - name: zephyr
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      remote: zephyr
+      revision: main
+      west-commands: scripts/west-commands.yml
+
+    - name: littlefs
+      remote: zephyr
+      path: modules/fs/littlefs
+      groups:
+        - fs
+      revision: ca583fd297ceb48bced3c2548600dc615d67af24
